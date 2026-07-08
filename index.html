@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="A free guide for people who are done watching tutorials and ready to make their first digital product sale. By Faiz — Success with Faiz."/>
+<title>Your First Digital Product Sale — Faiz AI Income</title>
+<style>
+/* ── TOKENS ─────────────────────────────────────────── */
+:root{
+  --white:#ffffff;
+  --off:#f8f8f6;
+  --ink:#111111;
+  --ink-2:#555555;
+  --ink-3:#999999;
+  --dark:#0d0d0d;
+  --dark-2:#181818;
+  --gold:#e8b84b;
+  --gold-pale:#fdf6e3;
+  --border:rgba(0,0,0,0.08);
+  --r:10px;
+  --font:'Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+body{font-family:var(--font);background:var(--white);color:var(--ink);line-height:1.6;}
+a{text-decoration:none;color:inherit;}
+
+/* ── NAV ────────────────────────────────────────────── */
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.nav-in{
+  max-width:1060px;margin:0 auto;padding:0 28px;
+  height:58px;display:flex;align-items:center;justify-content:space-between;
+}
+.logo{font-size:14px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;}
+.logo em{font-style:normal;color:var(--gold);}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{font-size:13px;color:var(--ink-2);font-weight:500;transition:color .15s;}
+.nav-links a:hover{color:var(--ink);}
+.nav-btn{
+  background:var(--ink);color:var(--white);
+  padding:8px 18px;border-radius:6px;
+  font-size:13px;font-weight:700;border:none;cursor:pointer;
+  transition:background .15s;
+}
+.nav-btn:hover{background:#333;}
+
+/* ── HERO ───────────────────────────────────────────── */
+.hero{
+  max-width:1060px;margin:0 auto;padding:80px 28px 72px;
+  display:grid;grid-template-columns:1fr 340px;gap:72px;align-items:center;
+}
+
+/* HERO COPY */
+.hero-eyebrow{
+  display:inline-block;
+  font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:20px;
+  padding-bottom:3px;border-bottom:2px solid var(--gold);
+}
+.hero h1{
+  font-size:52px;font-weight:900;line-height:1.05;
+  letter-spacing:-0.035em;color:var(--ink);
+  margin-bottom:20px;
+}
+.hero h1 .underline{
+  position:relative;display:inline-block;
+  white-space:nowrap;
+}
+.hero h1 .underline::after{
+  content:'';position:absolute;
+  left:0;bottom:-4px;right:0;
+  height:4px;background:var(--gold);border-radius:2px;
+}
+.hero-body{
+  font-size:17px;color:var(--ink-2);
+  line-height:1.7;max-width:430px;margin-bottom:28px;
+}
+.hero-body strong{color:var(--ink);font-weight:700;}
+.check-list{display:flex;flex-direction:column;gap:9px;margin-bottom:32px;}
+.check-list li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:14px;color:var(--ink-2);font-weight:500;list-style:none;
+}
+.check-list li::before{
+  content:'';
+  flex-shrink:0;width:18px;height:18px;margin-top:1px;
+  border-radius:50%;background:#ecfdf5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpolyline points='2,5.5 4.5,8 8.5,2' stroke='%23059669' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:center;
+}
+.primary-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--dark);color:var(--white);
+  padding:15px 30px;border-radius:8px;
+  font-size:15px;font-weight:800;border:none;cursor:pointer;
+  transition:all .15s;letter-spacing:0.01em;
+}
+.primary-btn:hover{background:#222;transform:translateY(-1px);}
+.primary-btn .arr{font-size:18px;transition:transform .15s;}
+.primary-btn:hover .arr{transform:translateX(3px);}
+
+/* ── EDITORIAL COVER ────────────────────────────────── */
+/* Brutalist typography cover — no icons, no gradients, no AI clichés */
+.cover-wrap{
+  perspective:1200px;
+  cursor:default;
+}
+.cover-3d{
+  transform:perspective(1200px) rotateY(-16deg) rotateX(3deg) translateZ(0);
+  transform-style:preserve-3d;
+  transition:transform .5s cubic-bezier(.23,1,.32,1);
+  position:relative;
+  filter:drop-shadow(0 40px 56px rgba(0,0,0,0.28)) drop-shadow(0 8px 16px rgba(0,0,0,0.16));
+}
+.cover-wrap:hover .cover-3d{
+  transform:perspective(1200px) rotateY(-7deg) rotateX(1deg) translateZ(0);
+}
+.cover-book{
+  width:260px;
+  background:var(--dark);
+  border-radius:2px 8px 8px 2px;
+  overflow:hidden;
+  position:relative;
+}
+/* Spine */
+.cover-spine{
+  position:absolute;left:0;top:0;bottom:0;width:12px;
+  background:linear-gradient(to right,#050505,#1a1a1a);
+  border-radius:2px 0 0 2px;
+  transform-origin:left center;
+}
+/* Inner padding for content */
+.cover-inner{
+  padding:28px 24px 28px 28px;
+  min-height:360px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  position:relative;
+}
+/* Gold rule at very top */
+.cover-rule-top{
+  position:absolute;top:0;left:0;right:0;
+  height:5px;background:var(--gold);
+}
+/* Tag row */
+.cover-tag-row{
+  display:flex;align-items:center;gap:8px;
+  margin-top:12px;
+}
+.cover-tag{
+  font-size:9px;font-weight:800;
+  letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--gold);
+}
+.cover-tag-line{flex:1;height:1px;background:rgba(255,255,255,0.1);}
+/* Big title area */
+.cover-title-wrap{flex:1;display:flex;flex-direction:column;justify-content:center;padding:20px 0 16px;}
+.cover-num{
+  font-size:72px;font-weight:900;
+  color:rgba(255,255,255,0.06);
+  line-height:1;letter-spacing:-0.05em;
+  margin-bottom:-16px;
+  font-variant-numeric:tabular-nums;
+}
+.cover-main-title{
+  font-size:26px;font-weight:900;
+  color:var(--white);line-height:1.05;
+  letter-spacing:-0.02em;
+  text-transform:uppercase;
+  position:relative;z-index:1;
+}
+.cover-main-title .gold{color:var(--gold);}
+.cover-divider{
+  width:40px;height:3px;background:var(--gold);
+  margin:14px 0;border-radius:2px;
+}
+.cover-sub{
+  font-size:11px;color:rgba(255,255,255,0.45);
+  line-height:1.5;font-weight:400;
+  letter-spacing:0.01em;
+}
+/* Author row */
+.cover-author-row{
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid rgba(255,255,255,0.08);
+  padding-top:14px;
+}
+.cover-author{
+  font-size:10px;font-weight:800;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:rgba(255,255,255,0.4);
+}
+.cover-logo-mark{
+  width:28px;height:28px;
+  border:2px solid var(--gold);
+  border-radius:4px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:900;color:var(--gold);
+  letter-spacing:-0.02em;
+}
+/* Shadow under book */
+.cover-ground-shadow{
+  position:absolute;bottom:-24px;left:8%;right:8%;
+  height:20px;
+  background:radial-gradient(ellipse,rgba(0,0,0,0.22) 0%,transparent 72%);
+  filter:blur(6px);
+  pointer-events:none;
+}
+
+/* ── PROBLEM SECTION (DARK) ─────────────────────────── */
+.problem-section{
+  background:var(--dark);
+  padding:80px 28px;
+}
+.problem-inner{
+  max-width:720px;margin:0 auto;text-align:center;
+}
+.prob-label{
+  font-size:11px;font-weight:700;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--gold);
+  margin-bottom:20px;
+}
+.prob-h{
+  font-size:38px;font-weight:900;color:var(--white);
+  letter-spacing:-0.025em;line-height:1.1;margin-bottom:20px;
+}
+.prob-body{
+  font-size:17px;color:rgba(255,255,255,0.55);
+  line-height:1.75;margin-bottom:0;
+}
+.prob-body strong{color:rgba(255,255,255,0.9);}
+
+/* Pain points row */
+.pain-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:12px;overflow:hidden;
+  margin-top:52px;max-width:1060px;margin-left:auto;margin-right:auto;
+}
+.pain-cell{
+  background:var(--dark-2);padding:28px 24px;
+}
+.pain-icon{font-size:22px;margin-bottom:12px;}
+.pain-title{font-size:14px;font-weight:700;color:var(--white);margin-bottom:6px;}
+.pain-body{font-size:13px;color:rgba(255,255,255,0.45);line-height:1.55;}
+
+/* ── SIGNUP ─────────────────────────────────────────── */
+.signup-wrap{
+  max-width:480px;margin:0 auto;
+  padding:80px 28px;
+  text-align:center;
+}
+.s-eyebrow{
+  font-size:11px;font-weight:700;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:14px;
+}
+.s-h{
+  font-size:36px;font-weight:900;letter-spacing:-0.025em;
+  color:var(--ink);line-height:1.1;margin-bottom:10px;
+}
+.s-sub{font-size:16px;color:var(--ink-2);margin-bottom:32px;}
+.form-field{text-align:left;margin-bottom:12px;}
+.form-field label{
+  display:block;font-size:12px;font-weight:700;
+  color:var(--ink-2);letter-spacing:0.04em;
+  text-transform:uppercase;margin-bottom:6px;
+}
+.form-field input{
+  width:100%;padding:13px 16px;
+  font-size:15px;font-family:var(--font);
+  border:1.5px solid rgba(0,0,0,0.12);
+  border-radius:8px;background:var(--white);
+  color:var(--ink);outline:none;
+  transition:border-color .2s,box-shadow .2s;
+}
+.form-field input:focus{
+  border-color:var(--gold);
+  box-shadow:0 0 0 3px rgba(232,184,75,0.15);
+}
+.form-field input::placeholder{color:var(--ink-3);}
+.sub-btn{
+  width:100%;padding:15px;margin-top:4px;
+  background:var(--dark);color:var(--white);
+  font-size:15px;font-weight:800;font-family:var(--font);
+  border:none;border-radius:8px;cursor:pointer;
+  transition:all .15s;letter-spacing:0.01em;
+}
+.sub-btn:hover{background:#1a1a1a;transform:translateY(-1px);}
+.priv{
+  font-size:12px;color:var(--ink-3);margin-top:12px;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+}
+.ok-msg{
+  display:none;margin-top:14px;
+  background:#ecfdf5;border:1.5px solid #6ee7b7;
+  border-radius:8px;padding:14px;
+  font-size:14px;font-weight:700;color:#065f46;
+}
+
+/* ── PATH SECTION ───────────────────────────────────── */
+.path-section{
+  background:var(--off);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:88px 28px;
+}
+.section-head{max-width:1060px;margin:0 auto 52px;text-align:center;}
+.eyebrow{
+  font-size:11px;font-weight:700;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:14px;
+}
+.sec-h{
+  font-size:36px;font-weight:900;
+  letter-spacing:-0.025em;line-height:1.1;color:var(--ink);
+  margin-bottom:10px;
+}
+.sec-sub{font-size:16px;color:var(--ink-2);}
+
+/* Path steps — horizontal connected timeline */
+.path-steps{
+  max-width:1060px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;position:relative;
+}
+.path-steps::before{
+  content:'';
+  position:absolute;
+  top:28px;left:calc(12.5%);right:calc(12.5%);
+  height:2px;background:var(--border);
+}
+.path-step{
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;padding:0 16px;
+  position:relative;
+}
+.path-num{
+  width:56px;height:56px;
+  border-radius:50%;
+  background:var(--white);
+  border:2px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;font-weight:900;color:var(--ink-3);
+  margin-bottom:20px;position:relative;z-index:1;
+  transition:all .2s;
+}
+.path-step:hover .path-num{
+  background:var(--gold);color:var(--dark);border-color:var(--gold);
+}
+.path-step-title{font-size:14px;font-weight:800;color:var(--ink);margin-bottom:6px;}
+.path-step-body{font-size:13px;color:var(--ink-2);line-height:1.55;}
+
+/* ── INSIDE CARDS ───────────────────────────────────── */
+.inside-section{padding:88px 28px;}
+.inside-grid{
+  max-width:1060px;margin:0 auto;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+}
+.i-card{
+  border:1px solid var(--border);border-radius:12px;
+  padding:26px;background:var(--white);
+  transition:box-shadow .2s,transform .2s;
+}
+.i-card:hover{
+  box-shadow:0 8px 32px rgba(0,0,0,0.08);
+  transform:translateY(-3px);
+}
+.i-card-tag{
+  font-size:10px;font-weight:800;letter-spacing:0.12em;
+  text-transform:uppercase;color:var(--gold);
+  margin-bottom:10px;
+}
+.i-card-title{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:6px;}
+.i-card-body{font-size:13px;color:var(--ink-2);line-height:1.6;}
+
+/* ── ROLE SECTION — WHO IS FAIZ ─────────────────────── */
+.role-section{
+  background:var(--dark);
+  padding:80px 28px;
+}
+.role-inner{
+  max-width:680px;margin:0 auto;
+  display:grid;grid-template-columns:auto 1fr;
+  gap:40px;align-items:start;
+}
+.role-avatar{
+  width:80px;height:80px;min-width:80px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#2a1f00,#5a3d00);
+  border:3px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;
+  font-size:28px;font-weight:900;color:var(--gold);
+  letter-spacing:-0.02em;
+}
+.role-label{
+  font-size:11px;font-weight:700;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:10px;
+}
+.role-name{
+  font-size:22px;font-weight:900;color:var(--white);
+  margin-bottom:14px;letter-spacing:-0.02em;
+}
+.role-body{
+  font-size:15px;color:rgba(255,255,255,0.55);
+  line-height:1.75;
+}
+.role-body strong{color:rgba(255,255,255,0.9);}
+
+/* ── FAQ ────────────────────────────────────────────── */
+.faq-section{padding:88px 28px;}
+.faq-list{max-width:640px;margin:0 auto;}
+.faq-item{border-bottom:1px solid var(--border);}
+.faq-q{
+  padding:18px 0;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+  font-size:15px;font-weight:700;color:var(--ink);
+  cursor:pointer;user-select:none;
+}
+.faq-icon{
+  flex-shrink:0;
+  width:22px;height:22px;border-radius:50%;
+  background:var(--off);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;color:var(--ink-3);
+  transition:transform .25s,background .2s;
+}
+.faq-a{
+  font-size:14px;color:var(--ink-2);
+  line-height:1.7;max-height:0;
+  overflow:hidden;transition:max-height .3s ease,padding .3s;
+}
+.faq-item.open .faq-a{max-height:200px;padding-bottom:18px;}
+.faq-item.open .faq-icon{transform:rotate(45deg);background:#f0e8d0;}
+
+/* ── FINAL CTA DARK ─────────────────────────────────── */
+.final-section{
+  background:var(--dark);
+  padding:88px 28px;text-align:center;
+}
+.final-h{
+  font-size:40px;font-weight:900;color:var(--white);
+  letter-spacing:-0.03em;line-height:1.1;
+  max-width:500px;margin:0 auto 12px;
+}
+.final-sub{
+  font-size:16px;color:rgba(255,255,255,0.45);
+  margin-bottom:36px;
+}
+.final-form-wrap{max-width:400px;margin:0 auto;}
+.final-form-wrap input{
+  width:100%;padding:13px 16px;margin-bottom:10px;
+  border:1.5px solid rgba(255,255,255,0.1);
+  border-radius:8px;background:rgba(255,255,255,0.06);
+  color:var(--white);font-size:14px;font-family:var(--font);
+  outline:none;transition:border-color .2s;
+}
+.final-form-wrap input::placeholder{color:rgba(255,255,255,0.3);}
+.final-form-wrap input:focus{border-color:var(--gold);}
+.final-form-wrap .sub-btn{background:#1a1a1a;border:1.5px solid rgba(255,255,255,0.12);}
+.final-form-wrap .sub-btn:hover{background:#222;border-color:var(--gold);}
+.final-form-wrap .priv{color:rgba(255,255,255,0.25);}
+
+/* ── FOOTER ─────────────────────────────────────────── */
+footer{
+  background:#080808;
+  border-top:1px solid rgba(255,255,255,0.05);
+  padding:36px 28px;
+}
+.foot-in{
+  max-width:1060px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:16px;
+}
+.foot-logo{font-size:13px;font-weight:800;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.5);}
+.foot-logo em{font-style:normal;color:var(--gold);}
+.foot-links{display:flex;gap:20px;flex-wrap:wrap;}
+.foot-links a{font-size:12px;color:rgba(255,255,255,0.3);transition:color .15s;}
+.foot-links a:hover{color:rgba(255,255,255,0.7);}
+.foot-copy{font-size:11px;color:rgba(255,255,255,0.2);}
+
+/* ── RESPONSIVE ─────────────────────────────────────── */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;gap:48px;text-align:center;padding:56px 28px;}
+  .hero h1{font-size:38px;}
+  .check-list{align-items:center;}
+  .hero-body{margin-left:auto;margin-right:auto;}
+  .pain-grid{grid-template-columns:1fr;}
+  .path-steps{grid-template-columns:repeat(2,1fr);gap:32px;}
+  .path-steps::before{display:none;}
+  .inside-grid{grid-template-columns:repeat(2,1fr);}
+  .role-inner{grid-template-columns:1fr;text-align:center;}
+  .role-avatar{margin:0 auto;}
+  .nav-links{display:none;}
+}
+@media(max-width:600px){
+  .hero h1{font-size:30px;}
+  .sec-h,.s-h,.final-h,.prob-h{font-size:26px;}
+  .inside-grid{grid-template-columns:1fr;}
+  .path-steps{grid-template-columns:1fr;}
+  .cover-book{width:220px;}
+  .cover-main-title{font-size:22px;}
+  .foot-in{flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav aria-label="Main navigation">
+  <div class="nav-in">
+    <span class="logo">FAIZ<em>AI</em>INCOME</span>
+    <ul class="nav-links">
+      <li><a href="#path">The System</a></li>
+      <li><a href="#inside">What's Inside</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <button class="nav-btn" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">Get Free Guide</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section aria-labelledby="h1">
+  <div class="hero">
+
+    <!-- LEFT -->
+    <div>
+      <span class="hero-eyebrow">Free Guide — Instant Download</span>
+      <h1 id="h1">Your First Digital Product <span class="underline">Sale.</span><br>This Week.</h1>
+      <p class="hero-body">You know the tools. You've watched the tutorials. You still have <strong>zero sales.</strong> This guide gives you the one thing those tutorials never did — a specific path from where you are right now to your first real sale.</p>
+      <ul class="check-list">
+        <li>Find a problem people actually pay to solve</li>
+        <li>Build a product in under two hours — free tools only</li>
+        <li>Write a listing that converts browsers into buyers</li>
+        <li>Get your first sale without paid ads or a big audience</li>
+        <li>Set up a system that keeps selling after you stop working</li>
+      </ul>
+      <button class="primary-btn" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">
+        Get the Free Guide <span class="arr">→</span>
+      </button>
+    </div>
+
+    <!-- COVER -->
+    <div class="cover-wrap" aria-label="Guide cover: The First Sale System by Faiz">
+      <div class="cover-3d">
+        <div class="cover-book">
+          <div class="cover-spine"></div>
+          <div class="cover-rule-top"></div>
+          <div class="cover-inner">
+            <div class="cover-tag-row">
+              <span class="cover-tag">Free Guide</span>
+              <span class="cover-tag-line"></span>
+              <span class="cover-tag">2026 Edition</span>
+            </div>
+            <div class="cover-title-wrap">
+              <div class="cover-num">01</div>
+              <h2 class="cover-main-title">The<br><span class="gold">First Sale</span><br>System</h2>
+              <div class="cover-divider"></div>
+              <p class="cover-sub">A direct guide for people who are done learning and ready to earn their first income from digital products.</p>
+            </div>
+            <div class="cover-author-row">
+              <span class="cover-author">By Faiz</span>
+              <div class="cover-logo-mark">F</div>
+            </div>
+          </div>
+        </div>
+        <div class="cover-ground-shadow"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROBLEM DARK -->
+<section class="problem-section" aria-labelledby="prob-h">
+  <div class="problem-inner">
+    <p class="prob-label">The Real Problem</p>
+    <h2 class="prob-h" id="prob-h">You are not stuck because you lack knowledge. You are stuck because nobody gave you a clear path.</h2>
+    <p class="prob-body">Most tutorials teach you <strong>what is possible.</strong> Nobody shows you <strong>what to do today,</strong> in order, with your specific situation. That gap between knowledge and action is where most people give up — and it has nothing to do with talent.</p>
+  </div>
+  <div class="pain-grid" role="list">
+    <div class="pain-cell" role="listitem">
+      <div class="pain-icon">📚</div>
+      <p class="pain-title">Tutorial Hell</p>
+      <p class="pain-body">You finish one course and start another. The information grows. The income does not.</p>
+    </div>
+    <div class="pain-cell" role="listitem">
+      <div class="pain-icon">🎯</div>
+      <p class="pain-title">Wrong Product</p>
+      <p class="pain-body">You built what sounded good to you — not what someone desperately needs. Nothing sold.</p>
+    </div>
+    <div class="pain-cell" role="listitem">
+      <div class="pain-icon">🔁</div>
+      <p class="pain-title">No Clear Next Step</p>
+      <p class="pain-body">After each tutorial you ask the same question: so what exactly should I do first?</p>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNUP -->
+<section id="signup" aria-labelledby="s-h">
+  <div class="signup-wrap">
+    <p class="s-eyebrow">Free Instant Access</p>
+    <h2 class="s-h" id="s-h">Get the Guide Now</h2>
+    <p class="s-sub">Enter your name and email. Receive it immediately.</p>
+    <form onsubmit="submitForm(event,'ok1')">
+      <div class="form-field">
+        <label for="fn1">First Name</label>
+        <input type="text" id="fn1" placeholder="Your first name" required autocomplete="given-name"/>
+      </div>
+      <div class="form-field">
+        <label for="em1">Email Address</label>
+        <input type="email" id="em1" placeholder="yourname@email.com" required autocomplete="email"/>
+      </div>
+      <button type="submit" class="sub-btn">Send Me The First Sale System →</button>
+      <p class="priv">
+        <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        No spam. Unsubscribe anytime.
+      </p>
+      <div class="ok-msg" id="ok1" role="alert">✓ Check your inbox — the guide is on its way.</div>
+    </form>
+  </div>
+</section>
+
+<!-- THE PATH -->
+<section class="path-section" id="path" aria-labelledby="path-h">
+  <div class="section-head">
+    <p class="eyebrow">The System</p>
+    <h2 class="sec-h" id="path-h">Four Steps. One Clear Path.</h2>
+    <p class="sec-sub">In sequence. No detours. No optional extras.</p>
+  </div>
+  <div class="path-steps" role="list">
+    <div class="path-step" role="listitem">
+      <div class="path-num">1</div>
+      <p class="path-step-title">Find a Real Problem</p>
+      <p class="path-step-body">Use the research method inside the guide to find a specific problem someone is losing sleep over — right now.</p>
+    </div>
+    <div class="path-step" role="listitem">
+      <div class="path-num">2</div>
+      <p class="path-step-title">Build the Solution</p>
+      <p class="path-step-body">Use the AI prompts and Canva workflow to create a product that directly answers that problem. Under two hours.</p>
+    </div>
+    <div class="path-step" role="listitem">
+      <div class="path-num">3</div>
+      <p class="path-step-title">Write a Listing That Sells</p>
+      <p class="path-step-body">Use the listing formula to describe the result — not the product. One title change that makes people click Buy.</p>
+    </div>
+    <div class="path-step" role="listitem">
+      <div class="path-num">4</div>
+      <p class="path-step-title">Get Your First Sale</p>
+      <p class="path-step-body">Follow the three free promotion steps. No paid ads. No existing audience. Just consistent, targeted action.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INSIDE -->
+<section class="inside-section" id="inside" aria-labelledby="inside-h">
+  <div class="section-head" style="max-width:1060px;margin:0 auto 52px;">
+    <p class="eyebrow">What's Inside</p>
+    <h2 class="sec-h" id="inside-h">Everything in One Place</h2>
+  </div>
+  <div class="inside-grid">
+    <article class="i-card">
+      <p class="i-card-tag">Part 01</p>
+      <h3 class="i-card-title">Problem Research Method</h3>
+      <p class="i-card-body">How to find the specific problem your product will solve — before you build anything. The step most people skip.</p>
+    </article>
+    <article class="i-card">
+      <p class="i-card-tag">Part 02</p>
+      <h3 class="i-card-title">AI Product Prompts</h3>
+      <p class="i-card-body">Exact ChatGPT prompts that turn a problem into a complete product outline in under ten minutes.</p>
+    </article>
+    <article class="i-card">
+      <p class="i-card-tag">Part 03</p>
+      <h3 class="i-card-title">Canva Build Workflow</h3>
+      <p class="i-card-body">A step-by-step process for designing a professional, sellable PDF product — with zero design experience.</p>
+    </article>
+    <article class="i-card">
+      <p class="i-card-tag">Part 04</p>
+      <h3 class="i-card-title">The Listing Formula</h3>
+      <p class="i-card-body">How to write a product title and description that speaks to the buyer's pain instead of describing features.</p>
+    </article>
+    <article class="i-card">
+      <p class="i-card-tag">Part 05</p>
+      <h3 class="i-card-title">First Sale Checklist</h3>
+      <p class="i-card-body">The exact sequence of actions to take after your product is live to get your first sale without paid advertising.</p>
+    </article>
+    <article class="i-card">
+      <p class="i-card-tag">Bonus</p>
+      <h3 class="i-card-title">The Repeat System</h3>
+      <p class="i-card-body">How to use your first sale to build a product library — so income compounds instead of starting from zero each time.</p>
+    </article>
+  </div>
+</section>
+
+<!-- WHO IS FAIZ -->
+<section class="role-section" aria-labelledby="role-h">
+  <div class="role-inner">
+    <div class="role-avatar" aria-hidden="true">F</div>
+    <div>
+      <p class="role-label">Your Guide</p>
+      <h2 class="role-name" id="role-h">Faiz — Success with Faiz</h2>
+      <p class="role-body">I spent <strong>two years watching digital marketing tutorials</strong> without making a single sale. Not because the strategies were wrong — but because nobody ever gave me a clear, ordered path from where I was to a real result. This guide is what I wish someone had given me on day one. I made it free because the information gap — not the effort gap — is what stops most people.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq" aria-labelledby="faq-h">
+  <div class="section-head" style="max-width:1060px;margin:0 auto 52px;">
+    <p class="eyebrow">Questions</p>
+    <h2 class="sec-h" id="faq-h">Straight Answers</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">Who is this guide for? <span class="faq-icon" aria-hidden="true">+</span></div>
+      <div class="faq-a">Anyone who wants to make their first income from a digital product — and is tired of tutorials that explain what is possible without showing what to do.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">Do I need any experience? <span class="faq-icon" aria-hidden="true">+</span></div>
+      <div class="faq-a">No. The guide is designed for people starting from zero — no existing audience, no design skills, no AI experience. If you can type and follow instructions, you can apply everything in it.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">Do I need money to start? <span class="faq-icon" aria-hidden="true">+</span></div>
+      <div class="faq-a">No. Every tool in the system has a free tier. ChatGPT free, Canva free, Gumroad free. Zero investment required to go from idea to live product.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">How long will it take to apply? <span class="faq-icon" aria-hidden="true">+</span></div>
+      <div class="faq-a">The research and product creation steps can be completed in a single afternoon. The full system — from idea to live listing — takes under a day for most people.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">Is the guide actually free? <span class="faq-icon" aria-hidden="true">+</span></div>
+      <div class="faq-a">Yes. Enter your name and email above and it arrives in your inbox immediately. No payment. No trial. No catch.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">What if I have tried this before and failed? <span class="faq-icon" aria-hidden="true">+</span></div>
+      <div class="faq-a">That is exactly who this is for. The guide addresses the specific reasons most first attempts fail — starting with building the wrong product for the wrong reason — and gives you a corrected path.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-section" aria-labelledby="final-h">
+  <p class="s-eyebrow" style="color:var(--gold);">Ready When You Are</p>
+  <h2 class="final-h" id="final-h">Stop learning. Make your first sale.</h2>
+  <p class="final-sub">The guide is free. The path is clear. The only thing left is to start.</p>
+  <div class="final-form-wrap">
+    <form onsubmit="submitForm(event,'ok2')">
+      <input type="text" placeholder="First Name" required autocomplete="given-name"/>
+      <input type="email" placeholder="Email Address" required autocomplete="email"/>
+      <button type="submit" class="sub-btn">Get Instant Access →</button>
+      <p class="priv">
+        <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        No spam. Unsubscribe anytime.
+      </p>
+      <div class="ok-msg" id="ok2" role="alert">✓ Check your inbox — the guide is on its way.</div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-in">
+    <span class="foot-logo">FAIZ<em>AI</em>INCOME</span>
+    <nav class="foot-links" aria-label="Footer links">
+      <a href="#" class="foot-btn" onclick="event.preventDefault();openModal('about')">About</a>
+      <a href="#" class="foot-btn" onclick="event.preventDefault();openModal('contact')">Contact</a>
+      <a href="#" class="foot-btn" onclick="event.preventDefault();openModal('privacy')">Privacy</a>
+      <a href="#" class="foot-btn" onclick="event.preventDefault();openModal('terms')">Terms</a>
+    </nav>
+    <span class="foot-copy">© 2026 Faiz AI Income</span>
+  </div>
+</footer>
+
+<!-- ── MODALS ─────────────────────────────────────────── -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal()" aria-hidden="true"></div>
+
+<!-- ABOUT -->
+<div class="modal" id="modal-about" role="dialog" aria-modal="true" aria-labelledby="about-title">
+  <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+  <div class="modal-tag">About</div>
+  <h2 class="modal-h" id="about-title">Who Is Faiz</h2>
+  <div class="modal-body">
+    <p>My name is Faiz. I run <strong>Success with Faiz</strong> — a YouTube channel and education brand built around one simple idea: most people fail at digital marketing not because they are lazy or unskilled, but because nobody ever gave them a clear, honest path.</p>
+    <p>I spent two years studying digital marketing — affiliate marketing, digital products, email marketing, AI tools, ecommerce — without generating meaningful income. The problem was never the strategies. The problem was that every tutorial taught me what was possible and left me asking the same question: what exactly do I do first?</p>
+    <p>This guide — and this channel — is the answer I built after finally figuring that out for myself.</p>
+    <div class="modal-divider"></div>
+    <p class="modal-label">What I teach</p>
+    <ul class="modal-list">
+      <li>How to create and sell digital products from scratch</li>
+      <li>How to use AI tools to build faster — not smarter-sound</li>
+      <li>Affiliate marketing with real strategy, not fake screenshots</li>
+      <li>Email marketing that builds a real owned audience</li>
+      <li>Ecommerce models that work without large upfront investment</li>
+    </ul>
+    <div class="modal-divider"></div>
+    <p class="modal-label">Where to find me</p>
+    <p>YouTube: <strong>Success with Faiz</strong><br>Language: Urdu with English titles and on-screen text<br>Email: <strong>contact@faizaiincome.com</strong></p>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="modal" id="modal-contact" role="dialog" aria-modal="true" aria-labelledby="contact-title">
+  <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+  <div class="modal-tag">Contact</div>
+  <h2 class="modal-h" id="contact-title">Get in Touch</h2>
+  <div class="modal-body">
+    <p>I read every message personally. I do not use a support team. If you message me, you are talking to me.</p>
+    <div class="modal-divider"></div>
+    <p class="modal-label">Email</p>
+    <p><strong>contact@faizaiincome.com</strong><br>
+    Response time: within 48 hours on weekdays.</p>
+    <div class="modal-divider"></div>
+    <p class="modal-label">YouTube</p>
+    <p>Leave a comment on any <strong>Success with Faiz</strong> video. I reply to every comment — usually within 24 hours.</p>
+    <div class="modal-divider"></div>
+    <p class="modal-label">What to contact me about</p>
+    <ul class="modal-list">
+      <li>Questions about the free guide or the system inside it</li>
+      <li>Problems you hit when building your first product</li>
+      <li>Collaboration or partnership enquiries</li>
+      <li>Feedback on what you want me to cover next</li>
+    </ul>
+    <div class="modal-divider"></div>
+    <p style="font-size:13px;color:var(--ink-3);">I do not respond to spam, unsolicited promotional emails, or requests to buy followers, backlinks, or shortcuts.</p>
+  </div>
+</div>
+
+<!-- PRIVACY -->
+<div class="modal" id="modal-privacy" role="dialog" aria-modal="true" aria-labelledby="privacy-title">
+  <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+  <div class="modal-tag">Privacy Policy</div>
+  <h2 class="modal-h" id="privacy-title">Your Privacy</h2>
+  <div class="modal-body">
+    <p style="font-size:12px;color:var(--ink-3);">Last updated: June 2026</p>
+    <div class="modal-divider"></div>
+    <p class="modal-label">What we collect</p>
+    <p>When you sign up for the free guide, we collect your <strong>first name</strong> and <strong>email address.</strong> That is all. We do not collect payment information, location data, or any other personal details.</p>
+    <div class="modal-divider"></div>
+    <p class="modal-label">How we use it</p>
+    <ul class="modal-list">
+      <li>To deliver the free guide to your inbox</li>
+      <li>To send our weekly email newsletter with digital marketing tips</li>
+      <li>To occasionally share relevant products or resources we believe will help you</li>
+    </ul>
+    <div class="modal-divider"></div>
+    <p class="modal-label">What we do not do</p>
+    <ul class="modal-list">
+      <li>We do not sell your data to third parties. Ever.</li>
+      <li>We do not share your email with advertisers</li>
+      <li>We do not send spam or irrelevant promotional emails</li>
+    </ul>
+    <div class="modal-divider"></div>
+    <p class="modal-label">Unsubscribing</p>
+    <p>Every email we send includes an unsubscribe link at the bottom. One click removes you from all future emails immediately. You can also email us directly at <strong>contact@faizaiincome.com</strong> to be removed.</p>
+    <div class="modal-divider"></div>
+    <p class="modal-label">Cookies</p>
+    <p>This page does not use tracking cookies or third-party analytics. It is a single HTML file with no external data collection.</p>
+    <div class="modal-divider"></div>
+    <p class="modal-label">Contact</p>
+    <p>Privacy questions: <strong>contact@faizaiincome.com</strong></p>
+  </div>
+</div>
+
+<!-- TERMS -->
+<div class="modal" id="modal-terms" role="dialog" aria-modal="true" aria-labelledby="terms-title">
+  <button class="modal-close" onclick="closeModal()" aria-label="Close">✕</button>
+  <div class="modal-tag">Terms of Use</div>
+  <h2 class="modal-h" id="terms-title">Terms</h2>
+  <div class="modal-body">
+    <p style="font-size:12px;color:var(--ink-3);">Last updated: June 2026</p>
+    <div class="modal-divider"></div>
+    <p class="modal-label">The free guide</p>
+    <p>The First Sale System guide is provided free of charge for personal, educational use. By downloading it you agree not to resell, redistribute, or republish its contents without written permission.</p>
+    <div class="modal-divider"></div>
+    <p class="modal-label">No income guarantee</p>
+    <p>This guide provides educational information about digital product creation and online selling. <strong>Results vary.</strong> We make no guarantee of income or sales. Your results depend entirely on your effort, your market, and factors outside our control. Anyone who promises you guaranteed income online is lying to you.</p>
+    <div class="modal-divider"></div>
+    <p class="modal-label">Intellectual property</p>
+    <p>All content on this page and inside the guide — including copy, structure, and system — belongs to Faiz AI Income. You may apply the methods for your own business. You may not copy and republish the content as your own.</p>
+    <div class="modal-divider"></div>
+    <p class="modal-label">Third-party tools</p>
+    <p>This guide references ChatGPT, Canva, and Gumroad. These are independent platforms with their own terms and pricing. We are not affiliated with or sponsored by any of them. Always review their current policies before use.</p>
+    <div class="modal-divider"></div>
+    <p class="modal-label">Changes</p>
+    <p>These terms may be updated at any time. Continued use of this page after changes means you accept the updated terms.</p>
+    <div class="modal-divider"></div>
+    <p class="modal-label">Contact</p>
+    <p>Legal questions: <strong>contact@faizaiincome.com</strong></p>
+  </div>
+</div>
+
+<style>
+/* ── FOOTER FIX ──────────────────────────────────────── */
+.foot-btn{
+  display:inline;
+  font-size:13px;
+  font-family:var(--font);
+  font-weight:500;
+  color:rgba(255,255,255,0.65);
+  text-decoration:none;
+  cursor:pointer;
+  transition:color .15s;
+  padding:0;
+  margin:0;
+  line-height:1.5;
+}
+.foot-btn:hover{
+  color:var(--gold);
+}
+
+/* ── MODAL ───────────────────────────────────────────── */
+.modal-overlay{
+  display:none;
+  position:fixed;inset:0;z-index:200;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(4px);
+}
+.modal-overlay.active{display:block;}
+
+.modal{
+  display:none;
+  position:fixed;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%) scale(0.96);
+  z-index:201;
+  width:min(560px,calc(100vw - 40px));
+  max-height:82vh;
+  background:var(--white);
+  border-radius:16px;
+  padding:36px;
+  overflow-y:auto;
+  box-shadow:0 40px 80px rgba(0,0,0,0.3),0 8px 24px rgba(0,0,0,0.15);
+  transition:transform .2s cubic-bezier(.23,1,.32,1),opacity .2s;
+  opacity:0;
+}
+.modal.active{
+  display:block;
+  transform:translate(-50%,-50%) scale(1);
+  opacity:1;
+}
+.modal-close{
+  position:absolute;top:20px;right:20px;
+  width:32px;height:32px;border-radius:50%;
+  background:var(--off);border:none;cursor:pointer;
+  font-size:13px;color:var(--ink-2);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .15s,color .15s;
+}
+.modal-close:hover{background:var(--ink);color:var(--white);}
+.modal-tag{
+  font-size:10px;font-weight:800;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:10px;
+  padding-bottom:3px;border-bottom:2px solid var(--gold);
+  display:inline-block;
+}
+.modal-h{
+  font-size:26px;font-weight:900;
+  letter-spacing:-0.02em;color:var(--ink);
+  margin-bottom:20px;line-height:1.1;
+}
+.modal-body p{
+  font-size:14px;color:var(--ink-2);
+  line-height:1.75;margin-bottom:12px;
+}
+.modal-body p strong{color:var(--ink);}
+.modal-label{
+  font-size:11px;font-weight:800;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:6px;margin-top:4px;
+}
+.modal-divider{
+  border:none;border-top:1px solid var(--border);
+  margin:18px 0;
+}
+.modal-list{
+  list-style:none;display:flex;flex-direction:column;gap:8px;
+  margin-bottom:12px;
+}
+.modal-list li{
+  font-size:14px;color:var(--ink-2);
+  line-height:1.55;padding-left:18px;position:relative;
+}
+.modal-list li::before{
+  content:'—';
+  position:absolute;left:0;color:var(--gold);font-weight:700;
+}
+/* scrollbar inside modal */
+.modal::-webkit-scrollbar{width:4px;}
+.modal::-webkit-scrollbar-track{background:transparent;}
+.modal::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
+</style>
+
+<script>
+function submitForm(e,id){
+  e.preventDefault();
+  var inputs=e.target.querySelectorAll('input');
+  var ok=true;
+  inputs.forEach(function(i){if(!i.value.trim())ok=false;});
+  if(!ok){alert('Please fill in both fields.');return;}
+  document.getElementById(id).style.display='block';
+  inputs.forEach(function(i){i.value='';});
+}
+function toggleFaq(el){
+  var item=el.parentElement;
+  var open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i){
+    i.classList.remove('open');
+    i.querySelector('.faq-q').setAttribute('aria-expanded','false');
+  });
+  if(!open){item.classList.add('open');el.setAttribute('aria-expanded','true');}
+}
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('keydown',function(e){
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleFaq(q);}
+  });
+});
+function openModal(id){
+  document.getElementById('modal-overlay').classList.add('active');
+  document.getElementById('modal-'+id).classList.add('active');
+  document.body.style.overflow='hidden';
+}
+function closeModal(){
+  document.getElementById('modal-overlay').classList.remove('active');
+  document.querySelectorAll('.modal.active').forEach(function(m){m.classList.remove('active');});
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape') closeModal();
+});
+</script>
+
+<!-- ── EMAIL POPUP ──────────────────────────────────── -->
+<div class="popup-overlay" id="popup-overlay" onclick="closePopup()" aria-hidden="true"></div>
+
+<div class="popup" id="popup-modal" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+  <button class="popup-close" onclick="closePopup()" aria-label="Close popup">✕</button>
+
+  <div class="popup-left" aria-hidden="true">
+    <div class="popup-book">
+      <div class="popup-book-rule"></div>
+      <div class="popup-book-inner">
+        <span class="popup-book-tag">Free Guide</span>
+        <h3 class="popup-book-title">The<br><span>First Sale</span><br>System</h3>
+        <div class="popup-book-line"></div>
+        <p class="popup-book-sub">By Faiz — Success with Faiz</p>
+      </div>
+    </div>
+    <div class="popup-glow" aria-hidden="true"></div>
+  </div>
+
+  <div class="popup-right">
+    <span class="popup-eyebrow">Free Download</span>
+    <h2 class="popup-h" id="popup-title">Get the Guide<br>Before You Leave</h2>
+    <p class="popup-sub">Enter your email and receive <strong>The First Sale System</strong> — the exact path from zero to your first digital product sale.</p>
+
+    <form class="popup-form" onsubmit="submitPopup(event)">
+      <input type="text" id="popup-name" placeholder="Your first name" required autocomplete="given-name" aria-label="First name"/>
+      <input type="email" id="popup-email" placeholder="yourname@email.com" required autocomplete="email" aria-label="Email address"/>
+      <button type="submit" class="popup-btn">Send Me the Free Guide →</button>
+      <p class="popup-priv">
+        <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        No spam. Unsubscribe anytime.
+      </p>
+    </form>
+
+    <div class="popup-success" id="popup-success" role="alert">
+      <svg width="20" height="20" fill="none" stroke="#059669" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+      <span>Check your inbox — it's on its way.</span>
+    </div>
+
+    <button class="popup-skip" onclick="closePopup()">No thanks, I don't want the guide</button>
+  </div>
+</div>
+
+<style>
+.popup-overlay{
+  display:none;
+  position:fixed;inset:0;z-index:300;
+  background:rgba(0,0,0,0.72);
+  backdrop-filter:blur(6px);
+  animation:fadeIn .25s ease;
+}
+.popup-overlay.active{display:block;}
+
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes slideUp{
+  from{opacity:0;transform:translate(-50%,-46%);}
+  to{opacity:1;transform:translate(-50%,-50%);}
+}
+
+.popup{
+  display:none;
+  position:fixed;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  z-index:301;
+  width:min(780px,calc(100vw - 32px));
+  background:#ffffff;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 48px 96px rgba(0,0,0,0.35),0 12px 32px rgba(0,0,0,0.2);
+  grid-template-columns:240px 1fr;
+}
+.popup.active{
+  display:grid;
+  animation:slideUp .3s cubic-bezier(.23,1,.32,1);
+}
+
+.popup-close{
+  position:absolute;top:16px;right:16px;z-index:10;
+  width:32px;height:32px;border-radius:50%;
+  background:rgba(0,0,0,0.08);border:none;cursor:pointer;
+  font-size:13px;color:#555;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .15s,color .15s;
+  font-family:var(--font);
+}
+.popup-close:hover{background:#111;color:#fff;}
+
+.popup-left{
+  background:#0d0d0d;
+  display:flex;align-items:center;justify-content:center;
+  padding:40px 28px;
+  position:relative;overflow:hidden;
+}
+.popup-glow{
+  position:absolute;
+  width:200px;height:200px;
+  background:radial-gradient(circle,rgba(232,184,75,0.18) 0%,transparent 70%);
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+}
+.popup-book{
+  width:140px;
+  background:#111;
+  border-radius:2px 8px 8px 2px;
+  overflow:hidden;
+  box-shadow:4px 0 12px rgba(0,0,0,0.5),-2px 0 6px rgba(0,0,0,0.3),0 20px 40px rgba(0,0,0,0.4);
+  transform:perspective(600px) rotateY(-12deg);
+  transition:transform .4s ease;
+  position:relative;z-index:1;
+}
+.popup-left:hover .popup-book{transform:perspective(600px) rotateY(-5deg);}
+.popup-book-rule{height:4px;background:#e8b84b;width:100%;}
+.popup-book-inner{padding:16px 14px 14px;}
+.popup-book-tag{
+  font-size:7px;font-weight:800;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:#e8b84b;display:block;margin-bottom:10px;
+}
+.popup-book-title{
+  font-size:15px;font-weight:900;color:#fff;
+  line-height:1.1;letter-spacing:-0.02em;
+  text-transform:uppercase;margin-bottom:10px;
+}
+.popup-book-title span{color:#e8b84b;}
+.popup-book-line{width:24px;height:2px;background:#e8b84b;border-radius:1px;margin-bottom:8px;}
+.popup-book-sub{
+  font-size:8px;color:rgba(255,255,255,0.35);
+  font-weight:500;letter-spacing:0.04em;
+}
+
+.popup-right{
+  padding:40px 36px 32px;
+  display:flex;flex-direction:column;
+  position:relative;
+}
+.popup-eyebrow{
+  font-size:10px;font-weight:800;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:#e8b84b;margin-bottom:10px;
+  padding-bottom:3px;
+  border-bottom:2px solid #e8b84b;
+  display:inline-block;
+  align-self:flex-start;
+}
+.popup-h{
+  font-size:26px;font-weight:900;
+  letter-spacing:-0.025em;line-height:1.1;
+  color:#111;margin-bottom:10px;
+}
+.popup-sub{font-size:14px;color:#666;line-height:1.65;margin-bottom:22px;}
+.popup-sub strong{color:#111;font-weight:700;}
+
+.popup-form input{
+  width:100%;padding:11px 14px;
+  font-size:14px;font-family:var(--font);
+  border:1.5px solid rgba(0,0,0,0.1);
+  border-radius:8px;background:#fff;
+  color:#111;outline:none;
+  transition:border-color .2s,box-shadow .2s;
+  margin-bottom:10px;display:block;
+}
+.popup-form input:focus{
+  border-color:#e8b84b;
+  box-shadow:0 0 0 3px rgba(232,184,75,0.15);
+}
+.popup-form input::placeholder{color:#aaa;}
+.popup-btn{
+  width:100%;padding:13px;
+  background:#111;color:#fff;
+  font-size:14px;font-weight:800;font-family:var(--font);
+  border:none;border-radius:8px;cursor:pointer;
+  transition:all .15s;letter-spacing:0.01em;
+  margin-bottom:10px;
+}
+.popup-btn:hover{background:#000;transform:translateY(-1px);}
+.popup-priv{
+  font-size:11px;color:#aaa;
+  display:flex;align-items:center;gap:5px;
+  justify-content:center;margin-bottom:16px;
+}
+
+.popup-success{
+  display:none;
+  align-items:center;gap:10px;
+  background:#ecfdf5;border:1.5px solid #6ee7b7;
+  border-radius:8px;padding:12px 16px;
+  font-size:14px;font-weight:700;color:#065f46;
+  margin-bottom:14px;
+}
+.popup-success.show{display:flex;}
+
+.popup-skip{
+  background:none;border:none;cursor:pointer;
+  font-size:12px;color:#ccc;
+  font-family:var(--font);
+  text-align:center;padding:0;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  transition:color .15s;
+  align-self:center;
+}
+.popup-skip:hover{color:#888;}
+
+@media(max-width:600px){
+  .popup{grid-template-columns:1fr;}
+  .popup-left{display:none;}
+  .popup-right{padding:36px 24px 28px;}
+  .popup-h{font-size:22px;}
+}
+</style>
+
+<script>
+(function(){
+  var shown = sessionStorage.getItem('popup_shown');
+  if(!shown){
+    setTimeout(function(){
+      document.getElementById('popup-overlay').classList.add('active');
+      document.getElementById('popup-modal').classList.add('active');
+      document.body.style.overflow='hidden';
+      sessionStorage.setItem('popup_shown','1');
+    }, 5000);
+  }
+})();
+
+function closePopup(){
+  document.getElementById('popup-overlay').classList.remove('active');
+  document.getElementById('popup-modal').classList.remove('active');
+  document.body.style.overflow='';
+}
+
+function submitPopup(e){
+  e.preventDefault();
+  var name  = document.getElementById('popup-name').value.trim();
+  var email = document.getElementById('popup-email').value.trim();
+  if(!name || !email){ alert('Please fill in both fields.'); return; }
+  document.querySelector('.popup-form').style.display='none';
+  document.getElementById('popup-success').classList.add('show');
+  setTimeout(closePopup, 2800);
+}
+
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape') closePopup();
+});
+</script>
+</body>
+</html>

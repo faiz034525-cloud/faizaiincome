@@ -996,15 +996,42 @@ footer{
 .modal::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
 </style>
 
-<script>
-function submitForm(e,id){
+  <script>
+async function submitForm(e, id) {
   e.preventDefault();
-  var inputs=e.target.querySelectorAll('input');
-  var ok=true;
-  inputs.forEach(function(i){if(!i.value.trim())ok=false;});
-  if(!ok){alert('Please fill in both fields.');return;}
-  document.getElementById(id).style.display='block';
-  inputs.forEach(function(i){i.value='';});
+
+  const name = document.getElementById("fn1").value.trim();
+  const email = document.getElementById("em1").value.trim();
+
+  if (!name || !email) {
+    alert("Please fill in both fields.");
+    return;
+  }
+
+  try {
+    const response = await fetch("/.netlify/functions/subscribe", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name,
+        email
+      })
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      document.getElementById(id).style.display = "block";
+      document.getElementById("fn1").value = "";
+      document.getElementById("em1").value = "";
+    } else {
+      alert(result.message || "Subscription failed.");
+    }
+  } catch (err) {
+    alert("Connection error.");
+  }
 }
 function toggleFaq(el){
   var item=el.parentElement;

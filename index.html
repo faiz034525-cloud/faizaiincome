@@ -750,8 +750,8 @@ footer{
   <p class="final-sub">The guide is free. The path is clear. The only thing left is to start.</p>
   <div class="final-form-wrap">
     <form onsubmit="submitForm(event,'ok2')">
-      <input type="text" placeholder="First Name" required autocomplete="given-name"/>
-      <input type="email" placeholder="Email Address" required autocomplete="email"/>
+      <input type="text" id="fn2" placeholder="First Name" required autocomplete="given-name"/>
+      <input type="email" id="em2" placeholder="Email Address" required autocomplete="email"/>
       <button type="submit" class="sub-btn">Get Instant Access →</button>
       <p class="priv">
         <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
@@ -996,42 +996,41 @@ footer{
 .modal::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
 </style>
 
-  <script>
-async function submitForm(e, id) {
+<script>
+function submitForm(e,id){
   e.preventDefault();
+  var form=e.target;
+  var inputs=form.querySelectorAll('input');
+  var name='', email='', ok=true;
+  inputs.forEach(function(i){
+    if(!i.value.trim())ok=false;
+    if(i.type==='email')email=i.value.trim();
+    else name=i.value.trim();
+  });
+  if(!ok){alert('Please fill in both fields.');return;}
 
-  const name = document.getElementById("fn1").value.trim();
-  const email = document.getElementById("em1").value.trim();
+  var btn=form.querySelector('button[type="submit"]');
+  var btnText=btn.textContent;
+  btn.disabled=true;
+  btn.textContent='Sending...';
 
-  if (!name || !email) {
-    alert("Please fill in both fields.");
-    return;
-  }
-
-  try {
-    const response = await fetch("/.netlify/functions/subscribe", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        name,
-        email
-      })
-    });
-
-    const result = await response.json();
-
-    if (response.ok) {
-      document.getElementById(id).style.display = "block";
-      document.getElementById("fn1").value = "";
-      document.getElementById("em1").value = "";
-    } else {
-      alert(result.message || "Subscription failed.");
-    }
-  } catch (err) {
-    alert("Connection error.");
-  }
+  fetch('/.netlify/functions/subscribe',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({name:name,email:email})
+  })
+  .then(function(res){ if(!res.ok) throw new Error('Request failed'); return res.json(); })
+  .then(function(){
+    document.getElementById(id).style.display='block';
+    inputs.forEach(function(i){i.value='';});
+  })
+  .catch(function(){
+    alert('Something went wrong. Please try again in a moment.');
+  })
+  .finally(function(){
+    btn.disabled=false;
+    btn.textContent=btnText;
+  });
 }
 function toggleFaq(el){
   var item=el.parentElement;
@@ -1299,9 +1298,30 @@ function submitPopup(e){
   var name  = document.getElementById('popup-name').value.trim();
   var email = document.getElementById('popup-email').value.trim();
   if(!name || !email){ alert('Please fill in both fields.'); return; }
-  document.querySelector('.popup-form').style.display='none';
-  document.getElementById('popup-success').classList.add('show');
-  setTimeout(closePopup, 2800);
+
+  var btn=document.querySelector('.popup-btn');
+  var btnText=btn.textContent;
+  btn.disabled=true;
+  btn.textContent='Sending...';
+
+  fetch('/.netlify/functions/subscribe',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({name:name,email:email})
+  })
+  .then(function(res){ if(!res.ok) throw new Error('Request failed'); return res.json(); })
+  .then(function(){
+    document.querySelector('.popup-form').style.display='none';
+    document.getElementById('popup-success').classList.add('show');
+    setTimeout(closePopup, 2800);
+  })
+  .catch(function(){
+    alert('Something went wrong. Please try again in a moment.');
+  })
+  .finally(function(){
+    btn.disabled=false;
+    btn.textContent=btnText;
+  });
 }
 
 document.addEventListener('keydown',function(e){

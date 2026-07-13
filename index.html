@@ -91,7 +91,7 @@ nav{
   content:'';
   flex-shrink:0;width:18px;height:18px;margin-top:1px;
   border-radius:50%;background:#ecfdf5;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpolyline points='2,5.5 4.5,8 8.5,2' stroke='%23059669' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpolyline points='2,5.5 4.5,8 8.5,2' stroke='%23059669' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
   background-repeat:no-repeat;background-position:center;
 }
 .primary-btn{
@@ -106,7 +106,6 @@ nav{
 .primary-btn:hover .arr{transform:translateX(3px);}
 
 /* ── EDITORIAL COVER ────────────────────────────────── */
-/* Brutalist typography cover — no icons, no gradients, no AI clichés */
 .cover-wrap{
   perspective:1200px;
   cursor:default;
@@ -128,26 +127,22 @@ nav{
   overflow:hidden;
   position:relative;
 }
-/* Spine */
 .cover-spine{
   position:absolute;left:0;top:0;bottom:0;width:12px;
   background:linear-gradient(to right,#050505,#1a1a1a);
   border-radius:2px 0 0 2px;
   transform-origin:left center;
 }
-/* Inner padding for content */
 .cover-inner{
   padding:28px 24px 28px 28px;
   min-height:360px;
   display:flex;flex-direction:column;justify-content:space-between;
   position:relative;
 }
-/* Gold rule at very top */
 .cover-rule-top{
   position:absolute;top:0;left:0;right:0;
   height:5px;background:var(--gold);
 }
-/* Tag row */
 .cover-tag-row{
   display:flex;align-items:center;gap:8px;
   margin-top:12px;
@@ -158,7 +153,6 @@ nav{
   color:var(--gold);
 }
 .cover-tag-line{flex:1;height:1px;background:rgba(255,255,255,0.1);}
-/* Big title area */
 .cover-title-wrap{flex:1;display:flex;flex-direction:column;justify-content:center;padding:20px 0 16px;}
 .cover-num{
   font-size:72px;font-weight:900;
@@ -184,7 +178,6 @@ nav{
   line-height:1.5;font-weight:400;
   letter-spacing:0.01em;
 }
-/* Author row */
 .cover-author-row{
   display:flex;align-items:center;justify-content:space-between;
   border-top:1px solid rgba(255,255,255,0.08);
@@ -203,7 +196,6 @@ nav{
   font-size:12px;font-weight:900;color:var(--gold);
   letter-spacing:-0.02em;
 }
-/* Shadow under book */
 .cover-ground-shadow{
   position:absolute;bottom:-24px;left:8%;right:8%;
   height:20px;
@@ -235,7 +227,6 @@ nav{
 }
 .prob-body strong{color:rgba(255,255,255,0.9);}
 
-/* Pain points row */
 .pain-grid{
   display:grid;grid-template-columns:repeat(3,1fr);
   gap:1px;background:rgba(255,255,255,0.06);
@@ -292,6 +283,7 @@ nav{
   transition:all .15s;letter-spacing:0.01em;
 }
 .sub-btn:hover{background:#1a1a1a;transform:translateY(-1px);}
+.sub-btn:disabled{opacity:0.7;cursor:not-allowed;}
 .priv{
   font-size:12px;color:var(--ink-3);margin-top:12px;
   display:flex;align-items:center;justify-content:center;gap:6px;
@@ -301,6 +293,12 @@ nav{
   background:#ecfdf5;border:1.5px solid #6ee7b7;
   border-radius:8px;padding:14px;
   font-size:14px;font-weight:700;color:#065f46;
+}
+.error-msg{
+  display:none;margin-top:14px;
+  background:#fee;border:1.5px solid #fca5a5;
+  border-radius:8px;padding:14px;
+  font-size:14px;font-weight:700;color:#991b1b;
 }
 
 /* ── PATH SECTION ───────────────────────────────────── */
@@ -322,7 +320,6 @@ nav{
 }
 .sec-sub{font-size:16px;color:var(--ink-2);}
 
-/* Path steps — horizontal connected timeline */
 .path-steps{
   max-width:1060px;margin:0 auto;
   display:grid;grid-template-columns:repeat(4,1fr);
@@ -378,7 +375,7 @@ nav{
 .i-card-title{font-size:16px;font-weight:800;color:var(--ink);margin-bottom:6px;}
 .i-card-body{font-size:13px;color:var(--ink-2);line-height:1.6;}
 
-/* ── ROLE SECTION — WHO IS FAIZ ─────────────────────── */
+/* ── ROLE SECTION ────────────────────────────────────── */
 .role-section{
   background:var(--dark);
   padding:80px 28px;
@@ -483,6 +480,87 @@ footer{
 .foot-links a:hover{color:rgba(255,255,255,0.7);}
 .foot-copy{font-size:11px;color:rgba(255,255,255,0.2);}
 
+/* ── MODAL ───────────────────────────────────────────── */
+.modal-overlay{
+  display:none;
+  position:fixed;inset:0;z-index:200;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(4px);
+}
+.modal-overlay.active{display:block;}
+
+.modal{
+  display:none;
+  position:fixed;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%) scale(0.96);
+  z-index:201;
+  width:min(560px,calc(100vw - 40px));
+  max-height:82vh;
+  background:var(--white);
+  border-radius:16px;
+  padding:36px;
+  overflow-y:auto;
+  box-shadow:0 40px 80px rgba(0,0,0,0.3),0 8px 24px rgba(0,0,0,0.15);
+  transition:transform .2s cubic-bezier(.23,1,.32,1),opacity .2s;
+  opacity:0;
+}
+.modal.active{
+  display:block;
+  transform:translate(-50%,-50%) scale(1);
+  opacity:1;
+}
+.modal-close{
+  position:absolute;top:20px;right:20px;
+  width:32px;height:32px;border-radius:50%;
+  background:var(--off);border:none;cursor:pointer;
+  font-size:13px;color:var(--ink-2);
+  display:flex;align-items:center;justify-content:center;
+  transition:background .15s,color .15s;
+}
+.modal-close:hover{background:var(--ink);color:var(--white);}
+.modal-tag{
+  font-size:10px;font-weight:800;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:10px;
+  padding-bottom:3px;border-bottom:2px solid var(--gold);
+  display:inline-block;
+}
+.modal-h{
+  font-size:26px;font-weight:900;
+  letter-spacing:-0.02em;color:var(--ink);
+  margin-bottom:20px;line-height:1.1;
+}
+.modal-body p{
+  font-size:14px;color:var(--ink-2);
+  line-height:1.75;margin-bottom:12px;
+}
+.modal-body p strong{color:var(--ink);}
+.modal-label{
+  font-size:11px;font-weight:800;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:6px;margin-top:4px;
+}
+.modal-divider{
+  border:none;border-top:1px solid var(--border);
+  margin:18px 0;
+}
+.modal-list{
+  list-style:none;display:flex;flex-direction:column;gap:8px;
+  margin-bottom:12px;
+}
+.modal-list li{
+  font-size:14px;color:var(--ink-2);
+  line-height:1.55;padding-left:18px;position:relative;
+}
+.modal-list li::before{
+  content:'—';
+  position:absolute;left:0;color:var(--gold);font-weight:700;
+}
+.modal::-webkit-scrollbar{width:4px;}
+.modal::-webkit-scrollbar-track{background:transparent;}
+.modal::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
+
 /* ── RESPONSIVE ─────────────────────────────────────── */
 @media(max-width:900px){
   .hero{grid-template-columns:1fr;gap:48px;text-align:center;padding:56px 28px;}
@@ -506,6 +584,23 @@ footer{
   .cover-main-title{font-size:22px;}
   .foot-in{flex-direction:column;align-items:flex-start;}
 }
+
+.foot-btn{
+  display:inline;
+  font-size:13px;
+  font-family:var(--font);
+  font-weight:500;
+  color:rgba(255,255,255,0.65);
+  text-decoration:none;
+  cursor:pointer;
+  transition:color .15s;
+  padding:0;
+  margin:0;
+  line-height:1.5;
+}
+.foot-btn:hover{
+  color:var(--gold);
+}
 </style>
 </head>
 <body>
@@ -526,12 +621,10 @@ footer{
 <!-- HERO -->
 <section aria-labelledby="h1">
   <div class="hero">
-
-    <!-- LEFT -->
     <div>
       <span class="hero-eyebrow">Free Guide — Instant Download</span>
       <h1 id="h1">Your First Digital Product <span class="underline">Sale.</span><br>This Week.</h1>
-      <p class="hero-body">You know the tools. You've watched the tutorials. You still have <strong>zero sales.</strong> This guide gives you the one thing those tutorials never did — a specific path from where you are right now to your first real sale.</p>
+      <p class="hero-body">You know the tools. You've watched the tutorials. You still have <strong>zero sales.</strong> This guide gives you the one thing those tutorials never did — a specific step-by-step system for making your first $100 online.</p>
       <ul class="check-list">
         <li>Find a problem people actually pay to solve</li>
         <li>Build a product in under two hours — free tools only</li>
@@ -571,7 +664,6 @@ footer{
         <div class="cover-ground-shadow"></div>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -580,7 +672,7 @@ footer{
   <div class="problem-inner">
     <p class="prob-label">The Real Problem</p>
     <h2 class="prob-h" id="prob-h">You are not stuck because you lack knowledge. You are stuck because nobody gave you a clear path.</h2>
-    <p class="prob-body">Most tutorials teach you <strong>what is possible.</strong> Nobody shows you <strong>what to do today,</strong> in order, with your specific situation. That gap between knowledge and action is where most people give up — and it has nothing to do with talent.</p>
+    <p class="prob-body">Most tutorials teach you <strong>what is possible.</strong> Nobody shows you <strong>what to do today,</strong> in order, with your specific situation. That gap between knowledge and action is where most people fail.</p>
   </div>
   <div class="pain-grid" role="list">
     <div class="pain-cell" role="listitem">
@@ -607,21 +699,22 @@ footer{
     <p class="s-eyebrow">Free Instant Access</p>
     <h2 class="s-h" id="s-h">Get the Guide Now</h2>
     <p class="s-sub">Enter your name and email. Receive it immediately.</p>
-    <form onsubmit="submitForm(event,'ok1')">
+    <form id="form1" onsubmit="submitToMailerLite(event, 'form1', 'ok1', 'error1')">
       <div class="form-field">
         <label for="fn1">First Name</label>
-        <input type="text" id="fn1" placeholder="Your first name" required autocomplete="given-name"/>
+        <input type="text" id="fn1" name="firstName" placeholder="Your first name" required autocomplete="given-name"/>
       </div>
       <div class="form-field">
         <label for="em1">Email Address</label>
-        <input type="email" id="em1" placeholder="yourname@email.com" required autocomplete="email"/>
+        <input type="email" id="em1" name="email" placeholder="yourname@email.com" required autocomplete="email"/>
       </div>
-      <button type="submit" class="sub-btn">Send Me The First Sale System →</button>
+      <button type="submit" class="sub-btn" id="btn1">Send Me The First Sale System →</button>
       <p class="priv">
-        <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
         No spam. Unsubscribe anytime.
       </p>
       <div class="ok-msg" id="ok1" role="alert">✓ Check your inbox — the guide is on its way.</div>
+      <div class="error-msg" id="error1" role="alert"></div>
     </form>
   </div>
 </section>
@@ -704,7 +797,7 @@ footer{
     <div>
       <p class="role-label">Your Guide</p>
       <h2 class="role-name" id="role-h">Faiz — Success with Faiz</h2>
-      <p class="role-body">I spent <strong>two years watching digital marketing tutorials</strong> without making a single sale. Not because the strategies were wrong — but because nobody ever gave me a clear, ordered path from where I was to a real result. This guide is what I wish someone had given me on day one. I made it free because the information gap — not the effort gap — is what stops most people.</p>
+      <p class="role-body">I spent <strong>two years watching digital marketing tutorials</strong> without making a single sale. Not because the strategies were wrong — but because nobody ever connected the dots. I learned how to code, run ads, build funnels, write copy — but I never learned the <strong>one system</strong> that tied it all together. This guide is the system I wish I had.</p>
     </div>
   </div>
 </section>
@@ -722,7 +815,7 @@ footer{
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">Do I need any experience? <span class="faq-icon" aria-hidden="true">+</span></div>
-      <div class="faq-a">No. The guide is designed for people starting from zero — no existing audience, no design skills, no AI experience. If you can type and follow instructions, you can apply everything in it.</div>
+      <div class="faq-a">No. The guide is designed for people starting from zero — no existing audience, no design skills, no AI experience. If you can type and follow instructions, you can apply this system immediately.</div>
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">Do I need money to start? <span class="faq-icon" aria-hidden="true">+</span></div>
@@ -738,7 +831,7 @@ footer{
     </div>
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)" tabindex="0" role="button" aria-expanded="false">What if I have tried this before and failed? <span class="faq-icon" aria-hidden="true">+</span></div>
-      <div class="faq-a">That is exactly who this is for. The guide addresses the specific reasons most first attempts fail — starting with building the wrong product for the wrong reason — and gives you a corrected path.</div>
+      <div class="faq-a">That is exactly who this is for. The guide addresses the specific reasons most first attempts fail — starting with building the wrong product for the wrong reason — and gives you a clear system to avoid all of them.</div>
     </div>
   </div>
 </section>
@@ -749,15 +842,16 @@ footer{
   <h2 class="final-h" id="final-h">Stop learning. Make your first sale.</h2>
   <p class="final-sub">The guide is free. The path is clear. The only thing left is to start.</p>
   <div class="final-form-wrap">
-    <form onsubmit="submitForm(event,'ok2')">
-      <input type="text" id="fn2" placeholder="First Name" required autocomplete="given-name"/>
-      <input type="email" id="em2" placeholder="Email Address" required autocomplete="email"/>
-      <button type="submit" class="sub-btn">Get Instant Access →</button>
+    <form id="form2" onsubmit="submitToMailerLite(event, 'form2', 'ok2', 'error2')">
+      <input type="text" id="fn2" name="firstName" placeholder="First Name" required autocomplete="given-name"/>
+      <input type="email" id="em2" name="email" placeholder="Email Address" required autocomplete="email"/>
+      <button type="submit" class="sub-btn" id="btn2">Get Instant Access →</button>
       <p class="priv">
-        <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
         No spam. Unsubscribe anytime.
       </p>
       <div class="ok-msg" id="ok2" role="alert">✓ Check your inbox — the guide is on its way.</div>
+      <div class="error-msg" id="error2" role="alert"></div>
     </form>
   </div>
 </section>
@@ -785,8 +879,8 @@ footer{
   <div class="modal-tag">About</div>
   <h2 class="modal-h" id="about-title">Who Is Faiz</h2>
   <div class="modal-body">
-    <p>My name is Faiz. I run <strong>Success with Faiz</strong> — a YouTube channel and education brand built around one simple idea: most people fail at digital marketing not because they are lazy or unskilled, but because nobody ever gave them a clear, honest path.</p>
-    <p>I spent two years studying digital marketing — affiliate marketing, digital products, email marketing, AI tools, ecommerce — without generating meaningful income. The problem was never the strategies. The problem was that every tutorial taught me what was possible and left me asking the same question: what exactly do I do first?</p>
+    <p>My name is Faiz. I run <strong>Success with Faiz</strong> — a YouTube channel and education brand built around one simple idea: most people fail at digital marketing not because they are lazy or incompetent. They fail because they lack a clear, actionable system.</p>
+    <p>I spent two years studying digital marketing — affiliate marketing, digital products, email marketing, AI tools, ecommerce — without generating meaningful income. The problem was never the strategies. The problem was nobody connected them into one coherent path.</p>
     <p>This guide — and this channel — is the answer I built after finally figuring that out for myself.</p>
     <div class="modal-divider"></div>
     <p class="modal-label">What I teach</p>
@@ -839,7 +933,7 @@ footer{
     <p style="font-size:12px;color:var(--ink-3);">Last updated: June 2026</p>
     <div class="modal-divider"></div>
     <p class="modal-label">What we collect</p>
-    <p>When you sign up for the free guide, we collect your <strong>first name</strong> and <strong>email address.</strong> That is all. We do not collect payment information, location data, or any other personal details.</p>
+    <p>When you sign up for the free guide, we collect your <strong>first name</strong> and <strong>email address.</strong> That is all. We do not collect payment information, location data, or browsing history.</p>
     <div class="modal-divider"></div>
     <p class="modal-label">How we use it</p>
     <ul class="modal-list">
@@ -856,7 +950,7 @@ footer{
     </ul>
     <div class="modal-divider"></div>
     <p class="modal-label">Unsubscribing</p>
-    <p>Every email we send includes an unsubscribe link at the bottom. One click removes you from all future emails immediately. You can also email us directly at <strong>contact@faizaiincome.com</strong> to be removed.</p>
+    <p>Every email we send includes an unsubscribe link at the bottom. One click removes you from all future emails immediately. You can also email us directly at <strong>contact@faizaiincome.com</strong></p>
     <div class="modal-divider"></div>
     <p class="modal-label">Cookies</p>
     <p>This page does not use tracking cookies or third-party analytics. It is a single HTML file with no external data collection.</p>
@@ -878,13 +972,13 @@ footer{
     <p>The First Sale System guide is provided free of charge for personal, educational use. By downloading it you agree not to resell, redistribute, or republish its contents without written permission.</p>
     <div class="modal-divider"></div>
     <p class="modal-label">No income guarantee</p>
-    <p>This guide provides educational information about digital product creation and online selling. <strong>Results vary.</strong> We make no guarantee of income or sales. Your results depend entirely on your effort, your market, and factors outside our control. Anyone who promises you guaranteed income online is lying to you.</p>
+    <p>This guide provides educational information about digital product creation and online selling. <strong>Results vary.</strong> We make no guarantee of income or sales. Your results depend entirely on your effort, market conditions, and execution.</p>
     <div class="modal-divider"></div>
     <p class="modal-label">Intellectual property</p>
-    <p>All content on this page and inside the guide — including copy, structure, and system — belongs to Faiz AI Income. You may apply the methods for your own business. You may not copy and republish the content as your own.</p>
+    <p>All content on this page and inside the guide — including copy, structure, and system — belongs to Faiz AI Income. You may apply the methods for your own business. You may not copy and republish the methods as your own.</p>
     <div class="modal-divider"></div>
     <p class="modal-label">Third-party tools</p>
-    <p>This guide references ChatGPT, Canva, and Gumroad. These are independent platforms with their own terms and pricing. We are not affiliated with or sponsored by any of them. Always review their current policies before use.</p>
+    <p>This guide references ChatGPT, Canva, and Gumroad. These are independent platforms with their own terms and pricing. We are not affiliated with or sponsored by any of them. Always review their terms before use.</p>
     <div class="modal-divider"></div>
     <p class="modal-label">Changes</p>
     <p>These terms may be updated at any time. Continued use of this page after changes means you accept the updated terms.</p>
@@ -894,154 +988,103 @@ footer{
   </div>
 </div>
 
-<style>
-/* ── FOOTER FIX ──────────────────────────────────────── */
-.foot-btn{
-  display:inline;
-  font-size:13px;
-  font-family:var(--font);
-  font-weight:500;
-  color:rgba(255,255,255,0.65);
-  text-decoration:none;
-  cursor:pointer;
-  transition:color .15s;
-  padding:0;
-  margin:0;
-  line-height:1.5;
-}
-.foot-btn:hover{
-  color:var(--gold);
-}
-
-/* ── MODAL ───────────────────────────────────────────── */
-.modal-overlay{
-  display:none;
-  position:fixed;inset:0;z-index:200;
-  background:rgba(0,0,0,0.6);
-  backdrop-filter:blur(4px);
-}
-.modal-overlay.active{display:block;}
-
-.modal{
-  display:none;
-  position:fixed;
-  top:50%;left:50%;
-  transform:translate(-50%,-50%) scale(0.96);
-  z-index:201;
-  width:min(560px,calc(100vw - 40px));
-  max-height:82vh;
-  background:var(--white);
-  border-radius:16px;
-  padding:36px;
-  overflow-y:auto;
-  box-shadow:0 40px 80px rgba(0,0,0,0.3),0 8px 24px rgba(0,0,0,0.15);
-  transition:transform .2s cubic-bezier(.23,1,.32,1),opacity .2s;
-  opacity:0;
-}
-.modal.active{
-  display:block;
-  transform:translate(-50%,-50%) scale(1);
-  opacity:1;
-}
-.modal-close{
-  position:absolute;top:20px;right:20px;
-  width:32px;height:32px;border-radius:50%;
-  background:var(--off);border:none;cursor:pointer;
-  font-size:13px;color:var(--ink-2);
-  display:flex;align-items:center;justify-content:center;
-  transition:background .15s,color .15s;
-}
-.modal-close:hover{background:var(--ink);color:var(--white);}
-.modal-tag{
-  font-size:10px;font-weight:800;
-  letter-spacing:0.14em;text-transform:uppercase;
-  color:var(--gold);margin-bottom:10px;
-  padding-bottom:3px;border-bottom:2px solid var(--gold);
-  display:inline-block;
-}
-.modal-h{
-  font-size:26px;font-weight:900;
-  letter-spacing:-0.02em;color:var(--ink);
-  margin-bottom:20px;line-height:1.1;
-}
-.modal-body p{
-  font-size:14px;color:var(--ink-2);
-  line-height:1.75;margin-bottom:12px;
-}
-.modal-body p strong{color:var(--ink);}
-.modal-label{
-  font-size:11px;font-weight:800;
-  letter-spacing:0.1em;text-transform:uppercase;
-  color:var(--ink-3);margin-bottom:6px;margin-top:4px;
-}
-.modal-divider{
-  border:none;border-top:1px solid var(--border);
-  margin:18px 0;
-}
-.modal-list{
-  list-style:none;display:flex;flex-direction:column;gap:8px;
-  margin-bottom:12px;
-}
-.modal-list li{
-  font-size:14px;color:var(--ink-2);
-  line-height:1.55;padding-left:18px;position:relative;
-}
-.modal-list li::before{
-  content:'—';
-  position:absolute;left:0;color:var(--gold);font-weight:700;
-}
-/* scrollbar inside modal */
-.modal::-webkit-scrollbar{width:4px;}
-.modal::-webkit-scrollbar-track{background:transparent;}
-.modal::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px;}
-</style>
-
 <script>
-function submitForm(e,id){
-  e.preventDefault();
-  var form=e.target;
-  var inputs=form.querySelectorAll('input');
-  var ok=true;
-  inputs.forEach(function(i){ if(!i.value.trim())ok=false; });
-  if(!ok){alert('Please fill in both fields.');return;}
+// MailerLite Direct API Integration with your API key
+const MAILERLITE_API_KEY = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI0IiwianRpIjoiOGYwNjg4MmRmZWMxZTg4OWFiNjcwMjQxMmI0ODRjNmQyNDQyZDEyODMzODMxMjg2NzQ0NWE5ZTA0ZjFkOWZiMDBlYTA0NjVjMjllMDRmODAiLCJpYXQiOjE3ODM5MjgzNjYuMDk2OTc1LCJuYmYiOjE3ODM5MjgzNjYuMDk2OTc3LCJleHAiOjQ5Mzk2MDE5NjYuMDkwODIzLCJzdWIiOiIyNTIxMzk3Iiwic2NvcGVzIjpbXX0.vP_4IC2faxS7EmbBH4VHLNvUoph4myauDoLZdiOx9PtgnVzZt2ex7m_nt4lOdVwtcgmLARC1QwVknJdDF-OjGO5z0_NqZVors38Cnv40gIQfIwwhQKrlSNvDXrt1wXG1vFvxwgSgt9n_HVpZ8jtT5NWLOPzF0ieodm_8yGXBelKEBgL4kYszG07J16qhJqhHZiVqm_vKL9jiCq5JEMfNhglbrMSHapJsFYpbmYQs7YstJ3Aqtjp5NvJBdxvVZiD6Tg01lmfxj-n_VFJDRFdtj3i5hcXAS9cNswyyfv34W0j1WwbVj2AF-4MYGNtYO54e_sW7njV0XLOUQTp27-dpkAIqohcNk71E03Qsgz1Sz0h3bZ-MDRfb6V5ssH483UkjYEKhy31Cgh7b4Qea0qHZ-ORd48NTSGseZrRSaUrfZ7DjhWxTIWkfXQoo-yPlYoQjBN7wI3rKUthSMBJBRiP-m-Y-diugKVSsc4-OlQgFwH1sHjhM8VX5XkVLZDDQe9vTJHB8q9AykvaIXATm6sU4MvCXKrdwMmlUUQZngsnqPXVfI7Ua7n7l0hP-g7KV2lpViEV5boZJGXklmkhgoaHuNUdDGfXdKbl6RgXDRFqf_xxv7mW5KSTmqWMIdpTCtRujRfX8CKOV_aforrW0j0bK5jAU1WNuoHvxY_te-qoNbOY';
 
-  // This form doesn't submit anywhere yet — signups on this page
-  // go through the SendPulse popup instead, which is fully wired up.
-  alert('Almost there! A signup popup will open automatically in a few seconds — enter your email there to get the guide.');
+// Function to submit form to MailerLite API
+async function submitToMailerLite(event, formId, successId, errorId) {
+  event.preventDefault();
+  
+  const form = document.getElementById(formId);
+  const successMsg = document.getElementById(successId);
+  const errorMsg = document.getElementById(errorId);
+  const submitBtn = form.querySelector('button[type="submit"]');
+  
+  // Reset messages
+  successMsg.style.display = 'none';
+  errorMsg.style.display = 'none';
+  errorMsg.textContent = '';
+  
+  // Get form data
+  const firstName = form.querySelector('input[name="firstName"]').value.trim();
+  const email = form.querySelector('input[name="email"]').value.trim();
+  
+  // Validate
+  if (!firstName || !email) {
+    errorMsg.textContent = '❌ Please fill in all fields';
+    errorMsg.style.display = 'block';
+    return;
+  }
+  
+  // Disable button during submission
+  submitBtn.disabled = true;
+  const originalText = submitBtn.textContent;
+  submitBtn.textContent = 'Subscribing...';
+  
+  try {
+    // Send to MailerLite API
+    const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${MAILERLITE_API_KEY}`
+      },
+      body: JSON.stringify({
+        email: email,
+        fields: {
+          first_name: firstName
+        }
+      })
+    });
+    
+    // Check if successful (201 = created, 200 = already exists but updated)
+    if (response.ok) {
+      successMsg.style.display = 'block';
+      form.reset();
+      console.log('✓ Subscriber added to MailerLite');
+    } else if (response.status === 422) {
+      // Email already subscribed - show success anyway
+      successMsg.style.display = 'block';
+      form.reset();
+      console.log('Email already in list');
+    } else {
+      const data = await response.json();
+      throw new Error(data.message || 'Subscription failed');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    errorMsg.textContent = '❌ ' + (error.message || 'Something went wrong. Please try again.');
+    errorMsg.style.display = 'block';
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalText;
+  }
 }
-function toggleFaq(el){
-  var item=el.parentElement;
-  var open=item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(function(i){
-    i.classList.remove('open');
-    i.querySelector('.faq-q').setAttribute('aria-expanded','false');
-  });
-  if(!open){item.classList.add('open');el.setAttribute('aria-expanded','true');}
-}
-document.querySelectorAll('.faq-q').forEach(function(q){
-  q.addEventListener('keydown',function(e){
-    if(e.key==='Enter'||e.key===' '){e.preventDefault();toggleFaq(q);}
-  });
-});
-function openModal(id){
+
+// Modal functions
+function openModal(modalType) {
+  document.getElementById(`modal-${modalType}`).classList.add('active');
   document.getElementById('modal-overlay').classList.add('active');
-  document.getElementById('modal-'+id).classList.add('active');
-  document.body.style.overflow='hidden';
 }
-function closeModal(){
+
+function closeModal() {
+  document.querySelectorAll('.modal').forEach(m => m.classList.remove('active'));
   document.getElementById('modal-overlay').classList.remove('active');
-  document.querySelectorAll('.modal.active').forEach(function(m){m.classList.remove('active');});
-  document.body.style.overflow='';
 }
-document.addEventListener('keydown',function(e){
-  if(e.key==='Escape') closeModal();
+
+// FAQ toggle
+function toggleFaq(element) {
+  const item = element.closest('.faq-item');
+  item.classList.toggle('open');
+  element.setAttribute('aria-expanded', item.classList.contains('open'));
+}
+
+// Close modals on escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
 });
 </script>
-
-
-<!-- SendPulse Subscription Form -->
-<script src="//web.webformscr.com/apps/fc3/build/loader.js" async sp-form-id="17cd9a3e8e0560173e01e741600a409bc0a74284a3656f9b296f7914fbf18090"></script>
-<!-- /SendPulse Subscription Form -->
 
 </body>
 </html>
